@@ -35,7 +35,7 @@ public class AlunoController {
 				break;
 
 			case 3:
-				editarAluno(alunos);
+				editarAluno(alunos, cursos);
 				break;
 
 			case 4:
@@ -115,7 +115,7 @@ public class AlunoController {
 		return alunos;
 	}
 
-	public List<Aluno> editarAluno(List<Aluno> alunos) {
+	public List<Aluno> editarAluno(List<Aluno> alunos, List<Curso> cursos) {
 
 		if (alunos.isEmpty()) {
 			System.out.println("\nNão possui alunos cadastrados.");
@@ -125,6 +125,7 @@ public class AlunoController {
 		listarAlunos(alunos);
 
 		Aluno aluno = new Aluno();
+		CursoController cursoController = new CursoController();
 
 		System.out.println("\n=== EDITAR ALUNO ===");
 
@@ -136,6 +137,7 @@ public class AlunoController {
 		System.out.println("3) Editar o país do aluno");
 		System.out.println("4) Editar o estado do aluno");
 		System.out.println("5) Editar a cidade do aluno");
+		System.out.println("6) Editar o curso");
 
 		System.out.print("\nInforme o campo para ser editado: ");
 		int campo = in.nextInt();
@@ -152,6 +154,7 @@ public class AlunoController {
 				aluno.setPais(alunos.get(idAluno).getPais());
 				aluno.setEstado(alunos.get(idAluno).getEstado());
 				aluno.setCidade(alunos.get(idAluno).getCidade());
+				aluno.setCurso(alunos.get(idAluno).getCurso());
 
 				System.out.println("\nNome alterado.");
 				break;
@@ -166,6 +169,7 @@ public class AlunoController {
 				aluno.setPais(alunos.get(idAluno).getPais());
 				aluno.setEstado(alunos.get(idAluno).getEstado());
 				aluno.setCidade(alunos.get(idAluno).getCidade());
+				aluno.setCurso(alunos.get(idAluno).getCurso());
 
 				System.out.println("\nIdade alterada.");
 				break;
@@ -180,6 +184,7 @@ public class AlunoController {
 				aluno.setIdadeAluno(alunos.get(idAluno).getIdadeAluno());
 				aluno.setEstado(alunos.get(idAluno).getEstado());
 				aluno.setCidade(alunos.get(idAluno).getCidade());
+				aluno.setCurso(alunos.get(idAluno).getCurso());
 
 				System.out.println("\nPaís alterado.");
 				break;
@@ -194,6 +199,7 @@ public class AlunoController {
 				aluno.setIdadeAluno(alunos.get(idAluno).getIdadeAluno());
 				aluno.setPais(alunos.get(idAluno).getPais());
 				aluno.setCidade(alunos.get(idAluno).getCidade());
+				aluno.setCurso(alunos.get(idAluno).getCurso());
 
 				System.out.println("\nEstado alterado.");
 				break;
@@ -208,8 +214,26 @@ public class AlunoController {
 				aluno.setIdadeAluno(alunos.get(idAluno).getIdadeAluno());
 				aluno.setPais(alunos.get(idAluno).getPais());
 				aluno.setEstado(alunos.get(idAluno).getEstado());
+				aluno.setCurso(alunos.get(idAluno).getCurso());
 
 				System.out.println("\nCidade alterada.");
+				break;
+				
+			case 6:
+				System.out.println("\n--- Editar curso ---");
+				
+				cursoController.listarCursos(cursos);
+				
+				System.out.print("\nInforme o Id do novo curso: ");
+				aluno.setCurso(cursos.get(in.nextInt() - 1));
+				
+				aluno.setNomeAluno(alunos.get(idAluno).getNomeAluno());
+				aluno.setIdadeAluno(alunos.get(idAluno).getIdadeAluno());
+				aluno.setPais(alunos.get(idAluno).getPais());
+				aluno.setEstado(alunos.get(idAluno).getEstado());
+				aluno.setCidade(alunos.get(idAluno).getCidade());
+				
+				System.out.println("\nCurso alterado.");
 				break;
 
 			default:
