@@ -34,7 +34,7 @@ public class CursoController {
 				break;
 
 			case 3:
-				editarCurso(cursos);
+				editarCurso(cursos, alunos);
 				break;
 
 			case 4:
@@ -81,7 +81,7 @@ public class CursoController {
 		return cursos;
 	}
 
-	public List<Curso> editarCurso(List<Curso> cursos) {
+	public List<Curso> editarCurso(List<Curso> cursos, List<Aluno> alunos) {
 
 		if (cursos.isEmpty()) {
 			System.out.println("\nNão possui cursos cadastrados.");
@@ -91,6 +91,7 @@ public class CursoController {
 		listarCursos(cursos);
 
 		Curso curso = new Curso();
+		Aluno aluno = new Aluno();
 
 		System.out.println("\n=== EDITAR CURSO ===");
 
@@ -98,7 +99,26 @@ public class CursoController {
 		int idCurso = in.nextInt() - 1;
 
 		System.out.print("\nInforme o novo nome do curso: ");
+		in.nextLine();
 		curso.setNomeCurso(in.nextLine());
+		
+		String cursoEditado = cursos.get(idCurso).getNomeCurso();
+		
+		for (int i = 0; i < alunos.size(); i++) {
+			String cursoAtual = alunos.get(i).getCurso().getNomeCurso();
+			
+			if (cursoAtual.equals(cursoEditado)) {
+				aluno.setCurso(curso);
+				
+				aluno.setNomeAluno(alunos.get(i).getNomeAluno());
+				aluno.setIdadeAluno(alunos.get(i).getIdadeAluno());
+				aluno.setPais(alunos.get(i).getPais());
+				aluno.setEstado(alunos.get(i).getEstado());
+				aluno.setCidade(alunos.get(i).getCidade());
+				
+				alunos.set(i, aluno);
+			}
+		}
 
 		cursos.set(idCurso, curso);
 
