@@ -40,7 +40,7 @@ public class ProgramaPrincipal {
 					break;
 
 				default:
-					System.out.println("Opï¿½ï¿½o Invï¿½lida!");
+					System.out.println("Opção Inválida!");
 					break;
 			}
 

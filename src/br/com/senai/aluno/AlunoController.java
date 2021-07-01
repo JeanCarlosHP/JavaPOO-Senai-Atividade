@@ -43,7 +43,7 @@ public class AlunoController {
 				break;
 
 			default:
-				System.out.println("Opï¿½ï¿½o Invï¿½lida!");
+				System.out.println("Opção Inválida!");
 				break;
 		}
 	}
@@ -51,7 +51,7 @@ public class AlunoController {
 	public Aluno cadastrarAluno(List<Curso> cursos) {
 
 		if (cursos.isEmpty()) {
-			System.out.println("\nNÃ£o possui cursos cadastrados.");
+			System.out.println("\nNão possui cursos cadastrados.");
 			return null;
 		}
 
@@ -79,7 +79,7 @@ public class AlunoController {
 		System.out.print("Informe a idade: ");
 		aluno.setIdadeAluno(in.nextInt());
 
-		System.out.print("informe o paÃ­s: ");
+		System.out.print("informe o país: ");
 		in.nextLine();
 		aluno.setPais(in.nextLine());
 
@@ -97,13 +97,13 @@ public class AlunoController {
 	public List<Aluno> listarAlunos(List<Aluno> alunos) {
 
 		if (alunos.isEmpty()) {
-			System.out.println("\nNï¿½o possui alunos cadastrados.");
+			System.out.println("\nNão possui alunos cadastrados.");
 			return null;
 		}
 
 		System.out.println("\n=== ALUNOS CADASTRADOS ===");
 
-		System.out.printf("| %2s | %4s | %5s | %6s | %14s | %14s | %10s |\n", "Id", "Nome", "Idade", "PaÃ­s", "Estado",
+		System.out.printf("| %2s | %4s | %5s | %6s | %14s | %14s | %10s |\n", "Id", "Nome", "Idade", "País", "Estado",
 				"Cidade", "Nome Curso");
 
 		for (int i = 0; i < alunos.size(); i++) {
@@ -118,7 +118,7 @@ public class AlunoController {
 	public List<Aluno> editarAluno(List<Aluno> alunos) {
 
 		if (alunos.isEmpty()) {
-			System.out.println("\nNï¿½o possui alunos cadastrados.");
+			System.out.println("\nNão possui alunos cadastrados.");
 			return null;
 		}
 
@@ -133,7 +133,7 @@ public class AlunoController {
 
 		System.out.println("\n1) Editar o nome do aluno");
 		System.out.println("2) Editar a idade do aluno");
-		System.out.println("3) Editar o paÃ­s do aluno");
+		System.out.println("3) Editar o país do aluno");
 		System.out.println("4) Editar o estado do aluno");
 		System.out.println("5) Editar a cidade do aluno");
 
@@ -171,9 +171,9 @@ public class AlunoController {
 				break;
 
 			case 3:
-				System.out.println("\n--- Editar paÃ­s ---");
+				System.out.println("\n--- Editar país ---");
 
-				System.out.print("Informe o novo paÃ­s: ");
+				System.out.print("Informe o novo país: ");
 				aluno.setPais(in.nextLine());
 
 				aluno.setNomeAluno(alunos.get(idAluno).getNomeAluno());
@@ -181,7 +181,7 @@ public class AlunoController {
 				aluno.setEstado(alunos.get(idAluno).getEstado());
 				aluno.setCidade(alunos.get(idAluno).getCidade());
 
-				System.out.println("\nPaÃ­s alterado.");
+				System.out.println("\nPaís alterado.");
 				break;
 
 			case 4:
@@ -213,7 +213,7 @@ public class AlunoController {
 				break;
 
 			default:
-				System.out.println("\nOpÃ§Ã£o InvÃ¡lida!");
+				System.out.println("\nOpção Inválida!");
 				break;
 		}
 
@@ -225,7 +225,7 @@ public class AlunoController {
 	public void excluirAluno(List<Aluno> alunos) {
 
 		if (alunos.isEmpty()) {
-			System.out.println("\nNï¿½o possui alunos cadastrados.");
+			System.out.println("\nNão possui alunos cadastrados.");
 			return;
 		}
 
@@ -237,13 +237,13 @@ public class AlunoController {
 		int idAluno = in.nextInt() - 1;
 
 		if (alunos.size() <= idAluno) {
-			System.out.println("\nAluno nï¿½o cadastrado.");
+			System.out.println("\nAluno não cadastrado.");
 			return;
 		}
 
 		alunos.remove(idAluno);
 
-		System.out.println("\nAluno excluÃ­do!");
+		System.out.println("\nAluno excluí­do!");
 
 	}
 }

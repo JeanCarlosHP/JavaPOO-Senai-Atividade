@@ -42,7 +42,7 @@ public class CursoController {
 				break;
 
 			default:
-				System.out.println("Op??o Inv?lida!");
+				System.out.println("Opção Inválida!");
 				break;
 		}
 	}
@@ -66,7 +66,7 @@ public class CursoController {
 	public List<Curso> listarCursos(List<Curso> cursos) {
 
 		if (cursos.isEmpty()) {
-			System.out.println("\nN˜o possui cursos cadastrados.");
+			System.out.println("\nNão possui cursos cadastrados.");
 			return null;
 		}
 
@@ -84,7 +84,7 @@ public class CursoController {
 	public List<Curso> editarCurso(List<Curso> cursos) {
 
 		if (cursos.isEmpty()) {
-			System.out.println("\nN˜o possui cursos cadastrados.");
+			System.out.println("\nNão possui cursos cadastrados.");
 			return null;
 		}
 
@@ -110,7 +110,7 @@ public class CursoController {
 	public void excluirCurso(List<Curso> cursos, List<Aluno> alunos) {
 
 		if (cursos.isEmpty()) {
-			System.out.println("\nN˜o possui cursos cadastrados.");
+			System.out.println("\nNão possui cursos cadastrados.");
 			return;
 		}
 
@@ -127,18 +127,18 @@ public class CursoController {
 			String alunoNomeCurso = alunos.get(i).getCurso().getNomeCurso();
 
 			if (alunoNomeCurso.equals(nomeCurso)) {
-				System.out.println("\nN?o ? poss?vel excluir o curso!");
+				System.out.println("\nNão é possível excluir o curso!");
 				return;
 			}
 		}
 
 		if (cursos.size() <= idCurso) {
-			System.out.println("\nCurso n˜o cadastrado.");
+			System.out.println("\nCurso não cadastrado.");
 			return;
 		}
 
 		cursos.remove(idCurso);
 
-		System.out.println("\nCurso exclu?do!");
+		System.out.println("\nCurso excluído!");
 	}
 }
